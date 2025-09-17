@@ -1,0 +1,464 @@
+{
+	"info": {
+		"_postman_id": "c17640ac-ee1c-49fd-951d-25bdb1a62528",
+		"name": "module_c",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48249140",
+		"_collection_link": "https://ildarmyname-4538855.postman.co/workspace/Ildar-Sufiyarov's-Workspace~0a7bb57d-3a83-4df0-8413-5cb08933e0db/collection/48249140-c17640ac-ee1c-49fd-951d-25bdb1a62528?action=share&source=collection_link&creator=48249140"
+	},
+	"item": [
+		{
+			"name": "conversation",
+			"item": [
+				{
+					"name": "start 401",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/chat/conversation",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chat",
+								"conversation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "start 400",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/chat/conversation",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chat",
+								"conversation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "start 200",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "prompt",
+									"value": "1233",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/chat/conversation/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chat",
+								"conversation",
+								""
+							],
+							"query": [
+								{
+									"key": "prompt",
+									"value": "111",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "continue 200",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "prompt",
+									"value": "11",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/chat/conversation/22",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chat",
+								"conversation",
+								"22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get partial response 200",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/chat/conversation/22",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chat",
+								"conversation",
+								"22"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "generation",
+			"item": [
+				{
+					"name": "generate 200",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text_prompt",
+									"value": "daWDD",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/imagegeneration/generate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"imagegeneration",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upscale 200",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "resource_id",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/imagegeneration/upscale",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"imagegeneration",
+								"upscale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "zoom_in 200",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "resource_id",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/imagegeneration/zoom/in",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"imagegeneration",
+								"zoom",
+								"in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "zoom_out 200",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "resource_id",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/imagegeneration/zoom/out",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"imagegeneration",
+								"zoom",
+								"out"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get result 200",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/imagegeneration/result/191",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"imagegeneration",
+								"result",
+								"191"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get status 200",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/imagegeneration/status/191",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"imagegeneration",
+								"status",
+								"191"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "recognition",
+			"item": [
+				{
+					"name": "recognize 200",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "test-api-token-123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/ildar/OneDrive/Pictures/Screenshots/Снимок экрана 2025-07-14 171615.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/imagerecognition/recognize",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"imagerecognition",
+								"recognize"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
