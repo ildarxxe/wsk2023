@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e995bb7c-7579-41fc-bf86-2d1d9e9ee1c8" name="Changes" comment="">
+    <list default="true" id="bb716202-617b-4049-a4ea-e19cfbea68d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/Home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/Home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dump.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../module_e/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +19,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
-}</component>
-  <component name="ProjectId" id="32rxS6JhBLFyT6bZZElAcfEZOxO" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="3392DN6oUFCfL4yErNDiHDMZEz3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,14 +39,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ildar\OneDrive\Documents\wsk2023\module_e" />
+      <recent name="C:\Users\ildar\OneDrive\Documents\wsk2023\module_d\src\pages" />
+      <recent name="C:\Users\ildar\OneDrive\Documents\wsk2023\module_d\src" />
+      <recent name="C:\Users\ildar\OneDrive\Documents\wsk2023\module_d\pages\Home" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -56,16 +60,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e995bb7c-7579-41fc-bf86-2d1d9e9ee1c8" name="Changes" comment="" />
-      <created>1758192489273</created>
+      <changelist id="bb716202-617b-4049-a4ea-e19cfbea68d6" name="Changes" comment="" />
+      <created>1758714846627</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1758192489273</updated>
-      <workItem from="1758192490583" duration="3205000" />
-      <workItem from="1758625183670" duration="3523000" />
-      <workItem from="1758632819113" duration="25000" />
-      <workItem from="1758698172548" duration="3189000" />
-      <workItem from="1758714831677" duration="15000" />
+      <updated>1758714846627</updated>
+      <workItem from="1758714847788" duration="774000" />
     </task>
     <servers />
   </component>
