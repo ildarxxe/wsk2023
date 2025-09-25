@@ -1,0 +1,22 @@
+header {
+    width: 100%;
+    background: #a267ff;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 2%;
+    font-size: 22px;
+}
+
+nav a {
+    color: white;
+}
+
+.home_page {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
