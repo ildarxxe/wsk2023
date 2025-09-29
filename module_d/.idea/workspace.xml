@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb716202-617b-4049-a4ea-e19cfbea68d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/common/ImageWithDetection/ImageWithDetection.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/DreamWeaver/DreamWeaver.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/DreamWeaver/DreamWeaver.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/MindReader/MindReader.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/MindReader/MindReader.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +63,8 @@
       <updated>1758714846627</updated>
       <workItem from="1758714847788" duration="774000" />
       <workItem from="1758737778731" duration="24000" />
-      <workItem from="1758786781917" duration="5932000" />
+      <workItem from="1758786781917" duration="6238000" />
+      <workItem from="1758800660498" duration="1561000" />
     </task>
     <servers />
   </component>
