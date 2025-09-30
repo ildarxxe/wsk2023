@@ -11,14 +11,14 @@ use Illuminate\Support\Str;
 
 class ApiTokenController extends Controller
 {
-    public function GetTokensByWorkspaceID(Request $request, $id): JsonResponse
+    public function GetTokensByWorkspaceID(Request $request, $id)
     {
         $tokens = Token::query()->where('workspace_id', $id)->get();
-        return response()->json(["status" => true, "tokens" => $tokens]);
+        return view("token")->with(["tokens" => $tokens, "workspace_id" => $id]);
     }
-    public function CreateToken(Request $request): JsonResponse
+    public function CreateToken(Request $request, $id)
     {
-        $ws_id = $request->workspace->id;
+        $ws_id = $id;
 
         $data = $request->validate([
             "name" => "required|string|max:100"
@@ -33,9 +33,9 @@ class ApiTokenController extends Controller
                 "workspace_id" => $ws_id,
                 "token" => $hashedToken,
             ]);
-            return response()->json(["status" => true, "token" => $token]);
+            return redirect("/token/" . $ws_id)->with(["token" => $token]);
         } catch (\Throwable $th) {
-            return response()->json(["status" => false, "message" => $th->getMessage()]);
+            return redirect("/token/" . $ws_id)->with(["status" => false, "message" => $th->getMessage()]);
         }
     }
 

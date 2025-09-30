@@ -10,6 +10,14 @@ class BillItem extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "bill_id",
+        "token_id",
+        "service_name",
+        "duration",
+        "price",
+        "total_cost",
+    ];
     public function token(): BelongsTo {
         return $this->belongsTo(Token::class);
     }

@@ -10,6 +10,13 @@ class Token extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "workspace_id",
+        "name",
+        "token",
+        "revoked_at",
+    ];
+
     public function workspace(): BelongsTo
     {
         return $this->belongsTo(Workspace::class);

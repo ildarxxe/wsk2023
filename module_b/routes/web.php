@@ -1,18 +1,25 @@
 <?php
 
+use App\Http\Controllers\api\v1\ApiTokenController;
+use App\Http\Controllers\api\v1\UserController;
+use App\Http\Controllers\api\v1\WorkspaceController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::middleware("auth")->group(function () {
+    Route::get('/', function () {
+        return view('login');
+    })->withoutMiddleware("auth")->name("login");
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::post('/login', [UserController::class, "UserLogin"])->withoutMiddleware("auth");
+
+    Route::prefix("workspace")->group(function () {
+        Route::get("/", [WorkspaceController::class, "GetWorkspaces"]);
+        Route::post("/create", [WorkspaceController::class, "CreateWorkspace"]);
+    });
+
+    Route::prefix("token")->group(function () {
+        Route::post("/revoke/{id}", [ApiTokenController::class, "RevokeToken"]);
+        Route::post("/{id}/create", [ApiTokenController::class, "CreateToken"]);
+        Route::get("/{id}", [ApiTokenController::class, "GetTokensByWorkspaceID"]);
+    });
 });

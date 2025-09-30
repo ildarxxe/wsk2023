@@ -9,11 +9,12 @@ use Illuminate\Http\Request;
 
 class WorkspaceController extends Controller
 {
-    public function GetWorkspaces(Request $request): JsonResponse {
+    public function GetWorkspaces(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
         $ws = Workspace::query()->where("user_id", $request->user()->id)->get();
-        return response()->json(["status" => true, "workspaces" => $ws]);
+        return view("workspace")->with("workspaces", $ws);
     }
-    public function CreateWorkspace(Request $request): JsonResponse
+    public function CreateWorkspace(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
         $data = $request->validate([
             "title" => "required",
@@ -26,9 +27,9 @@ class WorkspaceController extends Controller
                 "title" => $data["title"],
                 "description" => $data["description"] ?? null,
             ]);
-            return response()->json(["status" => true]);
+            return redirect("/workspace")->with(["status" => true]);
         } catch (\Throwable $th) {
-            return response()->json(["status" => false, "message" => $th->getMessage()]);
+            return redirect("/workspace")->with(["status" => false, "message" => $th->getMessage()]);
         }
     }
 

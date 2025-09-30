@@ -11,6 +11,12 @@ class Bill extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "workspace_id",
+        "month",
+        "cost",
+    ];
+
     public function items(): HasMany
     {
         return $this->hasMany(BillItem::class, 'bill_id');

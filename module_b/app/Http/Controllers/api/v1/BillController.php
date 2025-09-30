@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class BillController extends Controller
 {
-    public function GetBills(Request $request, $id): JsonResponse
+    public function GetBillsByWorkspaceID(Request $request, $id): JsonResponse
     {
         $bills = Bill::query()->where("workspace_id", $id)->with('items.token')->orderBy("billing_month", "desc")->get();
 
@@ -35,11 +35,11 @@ class BillController extends Controller
         return response()->json(["status" => true, "bills" => $formattedBills]);
     }
 
-    public function GetBillDetails($billId): JsonResponse
+    public function GetBillDetails($id): JsonResponse
     {
         $bill = Bill::query()
             ->with(['items.token', 'workspace'])
-            ->find($billId);
+            ->find($id);
 
         if (!$bill) {
             return response()->json(["status" => false, "message" => "Bill not found"], 404);
