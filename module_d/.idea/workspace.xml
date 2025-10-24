@@ -5,7 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb716202-617b-4049-a4ea-e19cfbea68d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ErrorAlert/ErrorAlert.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RecognizedImage/RecognizedImage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module_e/task2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module_e/task2/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module_e/task2/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module_e/task2/server/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module_e/task2/server/router.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module_e/task2/server/server.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module_e/task2/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module_e/task2/sw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_c/app/Http/Controllers/api/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../module_c/app/Http/Controllers/api/ConversationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_c/app/Http/Controllers/api/ImageGenerationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../module_c/app/Http/Controllers/api/ImageGenerationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_c/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../module_c/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Input/Input.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Input/Input.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/ImageWithDetection/ImageWithDetection.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Message/Message.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Message/Message.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ChatterBlast/ChatterBlast.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ChatterBlast/ChatterBlast.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ChatterBlast/ChatterBlast.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/DreamWeaver/DreamWeaver.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/DreamWeaver/DreamWeaver.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DreamWeaver/DreamWeaver.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MindReader/MindReader.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MindReader/MindReader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MindReader/MindReader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../module_e/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task1/src/InputReader.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../module_e/task1/src/InputReader.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/api-spec.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/api-spec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/src/icon/ai-news.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/src/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/src/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/src/sw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_e/task2/swagger/openapi/api-spec.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,24 +76,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ildar/OneDrive/Documents/wsk2023/module_d&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/ildar/OneDrive/Documents/wsk2022_world/speed_tasks",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ildar\OneDrive\Documents\wsk2023\module_d\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ildar\OneDrive\Documents\wsk2023\module_d\src\pages\MindReader" />
       <recent name="C:\Users\ildar\OneDrive\Documents\wsk2023\module_d\src\pages" />
       <recent name="C:\Users\ildar\OneDrive\Documents\wsk2023\module_d\src" />
       <recent name="C:\Users\ildar\OneDrive\Documents\wsk2023\module_d\pages\Home" />
@@ -65,6 +122,9 @@
       <workItem from="1758737778731" duration="24000" />
       <workItem from="1758786781917" duration="6238000" />
       <workItem from="1758800660498" duration="1561000" />
+      <workItem from="1759315888075" duration="231000" />
+      <workItem from="1760774352991" duration="13372000" />
+      <workItem from="1760874373104" duration="22000" />
     </task>
     <servers />
   </component>

@@ -7,7 +7,6 @@ use App\Models\Conversation;
 use App\Services\BillingService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Random\RandomException;
 
 class ConversationController extends Controller

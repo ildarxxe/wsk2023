@@ -64,8 +64,7 @@ class ImageGenerationController extends Controller
     }
 
     public function GetJobStatus(Request $req, $job_id): JsonResponse {
-        $job = Job::query()->findOrFail($job_id);
-
+        $job = Job::query()->where("job_id", $job_id)->first();
         if (!$job || $job->user_id !== $req->user()->id) {
             return response()->json([
                 "type" => "/problem/types/404",
@@ -75,11 +74,11 @@ class ImageGenerationController extends Controller
             ], 404);
         }
 
-        $isFinished = now()->diffInSeconds($job->created_at) > 5;
+        $isFinished = now()->diffInSeconds($job->created_at) > 10;
 
         $status = $isFinished ? 'finished' : 'pending';
         $progress = $isFinished ? 100 : mt_rand(1, 99);
-        $imageUrl = $isFinished ? "https://example.com/images/{$job_id}.png" : null;
+        $imageUrl = $isFinished ? "https://picsum.photos/id/$job_id/200/300" : null;
 
         try {
             if ($isFinished && $job->status === 'pending') {
@@ -107,7 +106,6 @@ class ImageGenerationController extends Controller
     public function GetJobResult(Request $req, $job_id): JsonResponse {
         try {
             $job = Job::query()->where('job_id', $job_id)->first();
-
             if (!$job || $job->user_id !== $req->user()->id) {
                 return response()->json([
                     "type" => "/problem/types/404",

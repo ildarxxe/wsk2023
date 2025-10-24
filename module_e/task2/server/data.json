@@ -1,0 +1,22 @@
+{
+  "news": [
+    {
+      "id": 103,
+      "title": "САМАЯ СВЕЖАЯ: В космос запущен новый PWA-спутник",
+      "content": "Подробности о прогрессивных веб-приложениях в космосе.",
+      "image": "https://placehold.co/100x100/3498db/FFFFFF?text=Space"
+    },
+    {
+      "id": 102,
+      "title": "PWA: Критерии установки обновлены",
+      "content": "Свежие требования браузеров к Service Worker'ам.",
+      "image": "https://placehold.co/100x100/2ecc71/FFFFFF?text=PWA"
+    },
+    {
+      "id": 101,
+      "title": "Офлайн-режим: Учебник для начинающих",
+      "content": "Как использовать Cache API для кэширования ресурсов.",
+      "image": "https://placehold.co/100x100/e74c3c/FFFFFF?text=Offline"
+    }
+  ]
+}

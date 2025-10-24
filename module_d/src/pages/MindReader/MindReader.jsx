@@ -1,68 +1,90 @@
-import Input from "../../components/Input/Input";
-import React, { useState } from "react";
-import ImageWithDetection from "../../components/common/ImageWithDetection/ImageWithDetection";
-import './MindReader.css';
+import React from 'react';
+import RecognizedImage from "../../components/RecognizedImage/RecognizedImage";
 
-const MindReader = () => {
-    const [file, setFile] = useState(null);
-    const [messages, setMessages] = useState([]);
+const MindReader = ({setErrors}) => {
+    const [messages, setMessages] = React.useState([]);
+    const [file, setFile] = React.useState(null);
+    const [isProcessing, setIsProcessing] = React.useState(false);
 
-    function handleNewChat() {
-        window.location.reload();
-    }
+    async function sendMessage() {
+        if(file && !isProcessing) {
+            const formData = new FormData();
+            formData.append('image', file);
 
-    function handleSubmit() {
-        if (file) {
-            const url = URL.createObjectURL(file);
-            const detectedObjects = imitateObjectDetection();
-
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                { url: url, detectedObjects: detectedObjects }
-            ]);
+            const origin_image_url = URL.createObjectURL(file);
 
             setFile(null);
+            setIsProcessing(true);
+
+            const res = await fetch("http://localhost:8000/api/imagerecognition/recognize", {
+                method: 'POST',
+                headers: {
+                    "X-API-TOKEN": localStorage.getItem("token"),
+                },
+                body: formData,
+            }).catch(err => {
+                setErrors((prevState) => [...prevState, "Услуга временно недоступна."]);
+            });
+
+            if(!res.ok) {
+                switch(res.status) {
+                    case 400:
+                        setErrors((prevState) => [...prevState, "Неверный формат данных."]);
+                        break;
+                    case 401:
+                        setErrors((prevState) => [...prevState, "Токен API недействителен."]);
+                        break;
+                    case 403:
+                        setErrors((prevState) => [...prevState, "Квота выставления счетов исчерпана."]);
+                        break;
+                    case 503:
+                        setErrors((prevState) => [...prevState, "Услуга временно недоступна."]);
+                        break;
+                    default:
+                        break;
+                }
+                setIsProcessing(false)
+                return
+            } else {
+                const data = await res.json();
+
+                const newObject = {
+                    id: Date.now(),
+                    origin_image_url: origin_image_url,
+                    objects: data.objects
+                }
+                setMessages((prevMessages) => [...prevMessages, newObject]);
+                setIsProcessing(false);
+            }
         }
     }
-
-    const imitateObjectDetection = () => {
-        const imgWidth = 500;
-        const imgHeight = 350;
-
-        const newDetectedObjects = [];
-        const numObjects = Math.floor(Math.random() * 5) + 3;
-
-        for (let i = 0; i < numObjects; i++) {
-            const x = Math.random() * (imgWidth * 0.7);
-            const y = Math.random() * (imgHeight * 0.7);
-            const width = Math.random() * (imgWidth - x) * 0.3 + 30;
-            const height = Math.random() * (imgHeight - y) * 0.3 + 30;
-
-            newDetectedObjects.push({ x, y, width, height });
-        }
-        return newDetectedObjects;
-    };
-
     return (
-        <>
-            <div className="new_chat">
-                <span onClick={handleNewChat}>+</span>
-                <p>New chat</p>
+        <div className="dream-weaver vh-100 d-flex flex-column flex-column">
+            <div className="messages pb-5">
+                <div className="container">
+                    {messages.map((message) => (
+                        <React.Fragment key={message.id}>
+                            <div className="jumbotron mb-1 mt-1 ml-auto">
+                                <img src={message.origin_image_url} alt="recognized image"/>
+                            </div>
+                            <div className="jumbotron mb-1 mt-1">
+                                <RecognizedImage objects={message.objects} url={message.origin_image_url} />
+                                <p>Найдено объектов: {message.objects.length}</p>
+                            </div>
+                        </React.Fragment>
+                    ))}
+                </div>
             </div>
-            <div className="dialog">
-                {messages && messages.map((message, index) => (
-                    <div key={index} className="message-container">
-                        <ImageWithDetection
-                            imageUrl={message.url}
-                            detectedObjects={message.detectedObjects}
-                        />
+
+            <div className="input w-100 d-flex justify-content-center align-items-center fixed-bottom">
+                <div className="input-group position-fixed mb-lg-5 w-50">
+                    <input onChange={(e) => setFile(e.target.files[0])} type="file" name="" className={"form-control"} placeholder={"Введите ваш запрос..."} id=""/>
+                    <div className="input-group-append">
+                        <button disabled={isProcessing} className={"btn-send btn btn-primary"} onClick={sendMessage}>Распознать</button>
                     </div>
-                ))}
+                </div>
             </div>
-            <div className={"mindreader-page"}>
-                <Input type={"file"} value={file} setValue={setFile} handleSubmit={handleSubmit} />
-            </div>
-        </>
+        </div>
     );
 };
 

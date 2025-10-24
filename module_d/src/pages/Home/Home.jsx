@@ -1,21 +1,14 @@
 import React from 'react';
-import './Home.css'
-import {Link} from "react-router";
 
 const Home = () => {
     return (
-        <>
-            <header>
-                <nav>
-                    <Link to={"/chatterblast"}>ChatterBlast</Link>
-                    <Link to={"/dreamweaver"}>Dream Weaver</Link>
-                    <Link to={"/mindreader"}>MindReader</Link>
-                </nav>
-            </header>
-            <div className={"home_page"}>
-                <h1>Добро пожаловать на гавную страницу!</h1>
-            </div>
-        </>
+        <div className={"home"}>
+            <nav className="navbar bg-light navbar-expand-lg navbar-light">
+                <a className={"nav-link"} href="/chatter-blast">Chatter Blast</a>
+                <a className={"nav-link"} href="/dream-weaver">Dream Weaver</a>
+                <a className={"nav-link"} href="/mind-reader">Mind Reader</a>
+            </nav>
+        </div>
     );
 };
 
