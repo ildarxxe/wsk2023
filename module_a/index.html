@@ -1,33 +1,70 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI API - Главная</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Продвижение набора AI API: ChatterBlast, DreamWeaver, MindReader.">
 </head>
 <body>
-<header>
-    <div class="logo">
-        <h1>NameAI</h1>
+<header class="site-header">
+    <div class="container header-content">
+        <h1 class="logo">AI Powered Solutions</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="product.html">Продукты</a></li>
+                <li><a href="pricing.html">Цены</a></li>
+                <li><a href="team.html">Команда</a></li>
+            </ul>
+        </nav>
     </div>
-    <nav>
-        <a href="./products-page.html" class="btn primary_btn">Our Products</a>
-        <a href="./pricing-page.html" class="btn secondary_btn">Price</a>
-    </nav>
 </header>
+
 <main>
-    <div class="content home_content">
-        <a href="./products-page.html" class="main_btn">Use a Our Products now!</a>
-    </div>
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>Раскройте Силу Искусственного Интеллекта</h2>
+                <p>Наш набор API-интерфейсов на базе ИИ трансформирует общение, генерацию изображений и распознавание.</p>
+                <a href="product.html" class="button primary-button">Узнать о продуктах</a>
+                <a href="pricing.html" class="button secondary-button">Посмотреть цены</a>
+            </div>
+            <div class="hero-image">
+                <img src="path/to/hero_illustration.png" alt="Визуализация AI-технологий, связанных с чатом, изображениями и распознаванием." role="presentation">
+            </div>
+        </div>
+    </section>
+
+    <section class="products-preview-section">
+        <div class="container">
+            <h3 class="section-title">Наши Ключевые API</h3>
+            <div class="product-grid">
+                <article class="product-card">
+                    <h4>ChatterBlast</h4>
+                    <p>Чат-боты нового поколения для безупречного взаимодействия с клиентами.</p>
+                    <a href="product.html#chatterblast">Подробнее</a>
+                </article>
+                <article class="product-card">
+                    <h4>DreamWeaver</h4>
+                    <p>Мгновенная генерация изображений высокого разрешения из текста.</p>
+                    <a href="product.html#dreamweaver">Подробнее</a>
+                </article>
+                <article class="product-card">
+                    <h4>MindReader</h4>
+                    <p>Точное распознавание объектов и сцен на изображениях и видео.</p>
+                    <a href="product.html#mindreader">Подробнее</a>
+                </article>
+            </div>
+        </div>
+    </section>
 </main>
-<footer>
-    <nav>
-        <a href="./team-page.html">Team Page</a>
-    </nav>
-    <div class="copyright">&copy; All right reserved</div>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2024 AI Powered Solutions. Все права защищены.</p>
+    </div>
 </footer>
 </body>
 </html>

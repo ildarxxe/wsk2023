@@ -2,12 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Billing;
-use App\Models\User;
-use App\Models\Workspace;
+use App\Models\ApiToken;
 use Closure;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthMiddleware
@@ -15,36 +14,25 @@ class AuthMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param Closure(Request): (Response) $next
+     * @throws AuthenticationException
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $token = $request->header('X-API-TOKEN');
-
-        if (!$token) {
-            return response()->json([
-                "type" => "/problem/types/401",
-                "title" => "Unauthorized",
-                "status" => 401,
-                "detail" => "The header X-API-TOKEN is missing."
-            ], 401);
+        $header_token = $request->header("X-API-TOKEN");
+        if (empty($header_token)) {
+           throw new AuthenticationException("Missing token.");
         }
 
-        $token_row = DB::table("api_tokens")->where('token', $token)->first();
-
-        if (!$token_row || $token_row->expires_at <= time()) {
-            return response()->json([
-                "type" => "/problem/types/401",
-                "title" => "Unauthorized",
-                "status" => 401,
-                "detail" => "The provided X-API-TOKEN is invalid."
-            ], 401);
+        $token_row = ApiToken::query()->where('token', $header_token)->first();
+        if (empty($token_row)) {
+            throw new AuthenticationException("Token not found.");
         }
 
-        $user = User::query()->where('id', $token_row->user_id)->first();
-        $request->setUserResolver(function () use ($user) {
-            return $user;
-        });
+        $ws_id = $token_row->workspace_id;
+        $user_id = $token_row->user_id;
+
+        $request->merge(["workspace_id" => $ws_id, "user_id" => $user_id]);
 
         return $next($request);
     }

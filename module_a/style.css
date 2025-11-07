@@ -1,465 +1,419 @@
-:root {
-    --backround: #0F172A;
-    --accent: #6366F1;
-    --neutral: #F8FAFC;
-}
+/* ------------------------------------------- */
+/* 1. Сброс и Основа (Mobile First)             */
+/* ------------------------------------------- */
 
+/* Сброс стандартных отступов */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Poppins", sans-serif;
+    /* Обязательно для адаптивного дизайна */
+    box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Хорошо читаемый шрифт */
+    line-height: 1.6;
+    color: #333; /* Хороший контраст (WCAG) */
+    background-color: #f9f9f9;
 }
 
-main {
-    flex: 1;
-    width: 100%;
-    display: flex;
+/* Контейнер для ограничения ширины контента */
+.container {
+    width: 90%;
+    max-width: 1200px; /* Ограничение на Desktop */
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-header {
-    padding: 20px;
+h1, h2, h3, h4 {
+    margin-bottom: 0.8em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.2em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.5em; }
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #007bff; /* Акцентный цвет для ссылок */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* ♿️ WCAG: Четкий фокус для клавиатурной навигации */
+a:focus, button:focus, input:focus {
+    outline: 3px solid #ffcc00;
+    outline-offset: 2px;
+}
+
+/* ------------------------------------------- */
+/* 2. Header и Навигация                       */
+/* ------------------------------------------- */
+
+.site-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.header-content {
     display: flex;
+    flex-direction: column; /* По умолчанию: логотип над навигацией (Mobile) */
     align-items: center;
-    justify-content: space-between;
-    background: var(--backround);
-    width: 100%;
-    color: var(--neutral);
+    gap: 10px;
 }
 
 .logo {
-    user-select: none;
+    font-size: 1.5em;
+    color: #007bff;
 }
 
-header nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-header nav > a {
-    text-decoration: none;
-    color: var(--neutral);
-    padding: 15px 25px;
-    font-size: 18px;
-    border-radius: 15px;
-}
-
-.primary_btn {
-    border: 2px solid var(--neutral);
-    background: var(--accent);
-}
-
-.primary_btn:hover {
-    box-shadow: 1px 1px 10px 2px var(--accent);
-
-}
-
-.secondary_btn {
-    border: 2px solid var(--accent);
-    transition: all .2s linear;
-}
-
-.secondary_btn:hover {
-    background: var(--accent);
-    border: 2px solid var(--neutral);
-}
-
-.content {
-    flex: 1;
-    min-height: 100%;
-    width: 100%;
-    background: url("./media-files/images/steve-johnson-ZPOoDQc8yMw-unsplash.jpg") no-repeat fixed center;
-    background-size: cover;
-}
-
-footer {
-    width: 100%;
-    padding: 20px;
-    background: var(--backround);
-    text-align: center;
-}
-
-footer .copyright {
-    color: var(--neutral);
-}
-
-footer nav {
-    margin-bottom: 20px;
-}
-
-footer a {
-    color: var(--neutral);
-    font-size: 20px;
-}
-
-.main_btn {
-    background: var(--accent);
-    color: var(--neutral);
-    border: 3px solid var(--neutral);
-    font-size: 30px;
-    padding: 30px 50px;
-    border-radius: 15px;
-    box-shadow: 1px 4px 10px 2px var(--backround);
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-name: main_btn_anim;
-}
-
-.home_content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@keyframes main_btn_anim {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(5px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-li {
+.main-nav ul {
     list-style: none;
-    font-size: 18px;
-}
-
-ul li::before {
-    content: "- ";
-    color: var(--neutral);
-    font-weight: bold;
-    padding-left: 10px;
-}
-
-.products_content {
-    padding: 10px 40px;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    grid-template-rows: 1fr;
-    height: 100%;
-}
-
-.products_card {
-    background: var(--backround);
-    color: var(--neutral);
-    border-radius: 10px;
-    padding: 20px;
-    height: 100%;
     display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    gap: 15px;
 }
 
-.products_card:hover {
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
-    transform: translateY(-5px);
+.main-nav a {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding: 5px;
 }
 
-.title {
-    text-align: center;
-    text-shadow: 1px 2px 3px var(--accent);
-    margin-bottom: 10px;
+/* Навигация на Desktop */
+@media (min-width: 768px) {
+    .header-content {
+        flex-direction: row; /* На Tablet/Desktop: логотип и навигация в ряд */
+        justify-content: space-between;
+    }
 }
 
-.subtitle {
-    text-align: center;
-}
+/* ------------------------------------------- */
+/* 3. Кнопки (CTA)                             */
+/* ------------------------------------------- */
 
-.desc {
-    margin: 20px 0;
-    letter-spacing: 1px;
-    line-height: 22px;
-    text-align: center;
-}
-
-.features {
-    margin-top: auto;
-    background: var(--accent);
-    padding: 20px;
+.button {
+    display: inline-block;
+    padding: 10px 20px;
     border-radius: 5px;
-}
-
-strong {
-    font-size: 22px;
-}
-
-ul {
+    font-weight: 600;
     margin-top: 10px;
-}
-
-.price_content {
-    background: url("./media-files/images/ken-cheung-KonWFWUaAuk-unsplash.jpg") no-repeat fixed center;
-    background-size: cover;
-}
-
-.price_title, .price_subtitle {
-    color: var(--backround);
-    font-weight: bold;
     text-align: center;
-    padding: 20px 0;
 }
 
-.price_title {
-    padding: 20px 0;
+.primary-button {
+    background-color: #007bff;
+    color: #fff;
+    border: 2px solid #007bff;
 }
 
-.price_cards {
+.primary-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color: #fff;
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.secondary-button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* ------------------------------------------- */
+/* 4. Главная: Hero Section                    */
+/* ------------------------------------------- */
+
+.hero-section {
+    background-color: #eaf4ff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column; /* По умолчанию: вертикальный стек (Mobile) */
+    gap: 30px;
+}
+
+.hero-text h2 {
+    font-size: 2.5em;
+    color: #007bff;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Адаптивность для Tablet/Desktop */
+@media (min-width: 768px) {
+    .hero-content {
+        flex-direction: row; /* Горизонтальный ряд */
+        text-align: left;
+        align-items: center;
+    }
+    .hero-text, .hero-image {
+        flex: 1; /* Распределяем пространство поровну */
+    }
+}
+
+/* Просмотр продуктов (Сетка) */
+.products-preview-section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    gap: 10px;
-    height: 50%;
-    align-items: center;
-    transform: translateY(15%);
-    padding: 0 40px;
-}
-
-.price_card {
-    background: var(--accent);
-    border-radius: 15px;
-    color: var(--neutral);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.5s linear;
-    width: 100%;
-    height: 100%;
-}
-
-.price_card:hover {
-    transform: rotateY(180deg);
-}
-
-.price_card:hover::before {
-    content: attr(data-price);
-    transform: rotateY(-180deg);
-    background: var(--accent);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-}
-
-.image {
-    min-width: 200px;
-    aspect-ratio: 1/1;
-    background-image: var(--bg-url);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
-}
-
-.team_main {
-    height: max-content;
-}
-
-.team_content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--neutral);
-    padding: 20px 40px;
-}
-
-.team_cards {
-    display: grid;
+    /* Mobile: 1 колонка. Tablet: 2 колонки. Desktop: 3 колонки. */
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr);
-    gap: 5px;
+    gap: 30px;
+    margin-top: 30px;
 }
 
-.team_card {
-    background: var(--accent);
-    display: flex;
-    overflow: hidden;
-    border-radius: 10px;
+@media (min-width: 500px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 10px 0 10px 20px;
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-.bio {
-    letter-spacing: 1px;
-    line-height: 22px;
-    margin-top: auto;
+.product-card {
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
 }
 
-.name {
+.product-card h4 {
+    color: #007bff;
     margin-bottom: 10px;
 }
 
-.info {
-    margin-top: 40px;
-    background: var(--accent);
-    padding: 20px 40px;
-    border-radius: 5px;
+/* ------------------------------------------- */
+/* 5. Product Page: Детали Продукта            */
+/* ------------------------------------------- */
+
+.product-detail-section {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column; /* Mobile: вертикальный стек */
+    gap: 30px;
+    border-bottom: 1px solid #eee;
 }
 
-ol li {
-    background: var(--neutral);
-    color: var(--backround);
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
+/* Чередование макета: reverse-layout меняет порядок элементов */
+.reverse-layout {
+    flex-direction: column-reverse;
 }
 
-.info h1 {
+.product-detail-section h3 {
+    color: #0056b3;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.features-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.features-list li {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-icon {
+    /* Стиль для иконок: убедитесь, что они имеют достаточный размер */
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+/* Адаптивность для Tablet/Desktop */
+@media (min-width: 768px) {
+    .product-detail-section {
+        flex-direction: row; /* Desktop: изображение и текст в ряд */
+        align-items: center;
+        text-align: left;
+    }
+
+    .product-text-content, .product-image {
+        flex: 1;
+    }
+
+    /* Чередование для нечетных секций */
+    .reverse-layout {
+        flex-direction: row-reverse;
+    }
+}
+
+/* ------------------------------------------- */
+/* 6. Pricing Page: Карточки Цен               */
+/* ------------------------------------------- */
+
+.pricing-table {
+    display: grid;
+    /* Mobile: 1 колонка. Desktop: 3 колонки. */
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+@media (min-width: 1024px) {
+    .pricing-table {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.pricing-card {
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     text-align: center;
-    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-.li_text {
-    padding-left: 10px;
-    margin-top: 10px;
+.pricing-card.highlighted {
+    border-color: #007bff;
+    background-color: #eaf4ff;
+    transform: scale(1.05);
 }
 
-@media (max-width: 1150px) {
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        grid-template-rows: 1fr 1fr;
-    }
+.api-name {
+    color: #0056b3;
+    margin-bottom: 15px;
 }
 
-@media (max-width: 910px) {
-    .price_cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        grid-template-rows: 1fr 1fr;
-        transform: translateY(-6%);
-        height: 90%;
-        padding: 40px;
-    }
+.price {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #28a745; /* Зеленый цвет для цены */
+    margin: 15px 0;
 }
 
-@media (max-width: 768px) {
-    .price_cards {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
-        grid-template-rows: 1fr 1fr 1fr;
-        transform: translateY(-5%);
-        padding: 40px;
-    }
-    .products {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
-        grid-template-rows: 1fr 1fr 1fr;
-    }
+.price-unit {
+    display: block;
+    font-size: 0.5em;
+    font-weight: 400;
+    color: #666;
 }
 
-@media (max-width: 580px) {
-    .team_card {
-        flex-direction: column;
-    }
-    .price_cards {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
-        grid-template-rows: 1fr 1fr 1fr;
-        transform: translateY(-8%);
-        padding: 40px;
-    }
-    .image {
-        max-height: 300px;
+.pricing-cta {
+    display: block;
+    width: 100%;
+}
+
+/* ------------------------------------------- */
+/* 7. Team Page: Сетка Команды и Ценности      */
+/* ------------------------------------------- */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet */
     }
 }
 
-@media (max-width: 508px) {
-    .price_cards {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
-        grid-template-rows: 1fr 1fr 1fr;
-        transform: translateY(-6%);
-        padding: 40px;
+@media (min-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(4, 1fr); /* Desktop (4 члена команды) */
     }
 }
 
-@media (max-width: 458px) {
-    .main_btn {
-        padding: 20px 30px;
-        font-size: 25px;
+.member-card {
+    text-align: center;
+}
+
+.member-photo img {
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover; /* Для красивого отображения фото */
+    border-radius: 50%; /* Круглое фото */
+    border: 3px solid #007bff;
+    margin-bottom: 15px;
+}
+
+.member-title {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Секция Ценностей */
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet/Desktop */
     }
 }
 
-@media (max-width: 445px) {
-    .btn {
-        padding: 8px 16px;
-    }
+.value-item {
+    padding: 20px;
+    border-left: 5px solid #007bff;
+    background-color: #fff;
 }
 
-@media (max-width: 398px) {
-    .logo h1 {
-        font-size: 24px;
-    }
-    .btn {
-        border: 1px solid;
-        padding: 5px 12px;
-    }
-    .price_content,
-    .products_content {
-        padding: 10px;
-    }
-    .price_cards {
-        padding: 10px 0;
-    }
+.value-icon {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+    display: block;
 }
 
-@media (max-width: 360px) {
-    .main_btn {
-        padding: 10px 20px;
-        font-size: 20px;
-    }
+/* ------------------------------------------- */
+/* 8. Footer                                   */
+/* ------------------------------------------- */
+
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
 }
 
-@media (max-width: 352px) {
-    .logo h1 {
-        font-size: 20px;
-    }
-    .btn {
-        border: 1px solid;
-        padding: 3px 6px;
-    }
-}
-
-@media (max-width: 310px) {
-    header {
-        padding: 10px;
-    }
-    .team_content {
-        padding: 10px;
-    }
+.site-footer p {
+    margin: 0;
+    font-size: 0.9em;
 }

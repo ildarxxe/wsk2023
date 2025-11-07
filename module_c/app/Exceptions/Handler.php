@@ -2,35 +2,18 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
     /**
-     * A list of exception types with their corresponding custom log levels.
-     *
-     * @var array<class-string<\Throwable>, \Psr\Log\LogLevel::*>
-     */
-    protected $levels = [
-        //
-    ];
-
-    /**
-     * A list of the exception types that are not reported.
-     *
-     * @var array<int, class-string<\Throwable>>
-     */
-    protected $dontReport = [
-        //
-    ];
-
-    /**
-     * A list of the inputs that are never flashed to the session on validation exceptions.
+     * The list of the inputs that are never flashed to the session on validation exceptions.
      *
      * @var array<int, string>
      */
@@ -45,24 +28,64 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (ValidationException $e, Request $request) {
+            if($request->wantsJson() || $request->expectsJson()) {
+                return response()->json([
+                    "type" => "/problem/types/400",
+                    "title" => "Bad Request",
+                    "status" => 400,
+                    "detail" => "The request is invalid."
+                ], 400);
+            }
+            return null;
         });
-    }
 
-    public function render($request, Throwable $e): Response|JsonResponse|\Symfony\Component\HttpFoundation\Response|RedirectResponse
-    {
-        if ($e instanceof ValidationException) {
-//            $errors = $e->validator->errors()->getMessages();
+        $this->renderable(function (AuthenticationException $e, Request $request) {
+            if($request->wantsJson() || $request->expectsJson()) {
+                return response()->json([
+                    "type" => "/problem/types/401",
+                    "title" => "Unauthorized",
+                    "status" => 401,
+                    "detail" => "The header X-API-TOKEN is missing or invalid."
+                ], 401);
+            }
+            return null;
+        });
 
-            return response()->json([
-                "type" => "/problem/types/400",
-                "title" => "Bad Request",
-                "status" => 400,
-                "detail" => "The request is invalid."
-            ], 400);
-        }
+        $this->renderable(function (AuthorizationException $e, Request $request) {
+            if($request->wantsJson() || $request->expectsJson()) {
+                return response()->json([
+                    "type" => "/problem/types/403",
+                    "title" => "Quota Exceeded",
+                    "status" => 403,
+                    "detail" => "You have exceeded your quota."
+                ], 403);
+            }
+            return null;
+        });
 
-        return parent::render($request, $e);
+        $this->renderable(function (ModelNotFoundException $e, Request $request) {
+            if($request->wantsJson() || $request->expectsJson()) {
+                return response()->json([
+                    "type" => "/problem/types/404",
+                    "title" => "Resource Not Found",
+                    "status" => 404,
+                    "detail" => "Resource not found."
+                ], 404);
+            }
+            return null;
+        });
+
+        $this->renderable(function (Throwable $e, Request $request) {
+            if($request->wantsJson() || $request->expectsJson()) {
+                return response()->json([
+                    "type" => "/problem/types/503",
+                    "title" => "Service Unavailable",
+                    "status" => 503,
+                    "detail" => "Server internal error."
+                ], 503);
+            }
+            return null;
+        });
     }
 }
