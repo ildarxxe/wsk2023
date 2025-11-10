@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bills', function (Blueprint $table) {
+        Schema::create('api_tokens', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("workspace_id")->unsigned();
             $table->foreign("workspace_id")->references("id")->on("workspaces");
-            $table->date("month");
-            $table->float("cost");
+            $table->string("name", 100);
+            $table->text("token");
+            $table->timestamp("revoked_at")->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bills');
+        Schema::dropIfExists('api_tokens');
     }
 };

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tokens', function (Blueprint $table) {
+        Schema::create('billing_quotas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("workspace_id")->unsigned();
+            $table->unsignedBigInteger("workspace_id");
             $table->foreign("workspace_id")->references("id")->on("workspaces");
-            $table->string("name", 100);
-            $table->string("token", 255);
-            $table->date("revoked_at")->nullable();
+            $table->decimal("limit")->nullable();
+            $table->decimal("current_quota")->default(0.0);
+            $table->integer("remaining_days");
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tokens');
+        Schema::dropIfExists('billing_quotas');
     }
 };

@@ -1,25 +1,41 @@
 <?php
 
-use App\Http\Controllers\api\v1\ApiTokenController;
-use App\Http\Controllers\api\v1\UserController;
-use App\Http\Controllers\api\v1\WorkspaceController;
+use App\Http\Controllers\ApiTokenController;
+use App\Http\Controllers\ServiceUsageController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WorkspaceController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware("auth")->group(function () {
-    Route::get('/', function () {
-        return view('login');
-    })->withoutMiddleware("auth")->name("login");
+Route::get('/', function () {
+    return view('login');
+})->name('login');
 
-    Route::post('/login', [UserController::class, "UserLogin"])->withoutMiddleware("auth");
+Route::post("/login", [UserController::class, "Login"]);
 
-    Route::prefix("workspace")->group(function () {
-        Route::get("/", [WorkspaceController::class, "GetWorkspaces"]);
-        Route::post("/create", [WorkspaceController::class, "CreateWorkspace"]);
+
+Route::middleware("auth:sanctum")->group(function () {
+    Route::get("/home", function () {
+        return view("home");
+    });
+    Route::get("/tokens", [ApiTokenController::class, "viewTokens"]);
+    Route::get("/tokens/create", [ApiTokenController::class, "viewCreateToken"]);
+
+    Route::post("/tokens/{token}/revoke", [ApiTokenController::class, "revokeToken"]);
+    Route::post("/tokens/create", [ApiTokenController::class, "createToken"]);
+
+    Route::prefix("/workspaces")->group(function () {
+        Route::get("/", [WorkspaceController::class, "viewWorkspaces"]);
+        Route::get("/create", function () {
+            return view("workspaceCreate");
+        });
+        Route::get("/{workspace}", [WorkspaceController::class, "viewWorkspaceByID"]);
+        Route::get("/{workspace}/update", [WorkspaceController::class, "viewUpdate"]);
+
+        Route::post("/create", [WorkspaceController::class, "createWorkspace"]);
+        Route::put("/{workspace}/update", [WorkspaceController::class, "updateWorkspace"]);
     });
 
-    Route::prefix("token")->group(function () {
-        Route::post("/revoke/{id}", [ApiTokenController::class, "RevokeToken"]);
-        Route::post("/{id}/create", [ApiTokenController::class, "CreateToken"]);
-        Route::get("/{id}", [ApiTokenController::class, "GetTokensByWorkspaceID"]);
+    Route::prefix("/bills")->group(function () {
+        Route::get("/", [ServiceUsageController::class, "viewBills"]);
     });
 });

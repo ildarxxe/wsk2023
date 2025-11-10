@@ -4,21 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Token extends Model
+class ApiToken extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        "id",
         "workspace_id",
         "name",
         "token",
         "revoked_at",
+        "created_at",
     ];
-
-    public function workspace(): BelongsTo
-    {
-        return $this->belongsTo(Workspace::class);
-    }
 }

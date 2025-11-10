@@ -10,7 +10,10 @@ class BillingQuota extends Model
     use HasFactory;
 
     protected $fillable = [
+        "id",
         "workspace_id",
-        "limit"
+        "limit",
+        "current_quota",
+        "remaining_days",
     ];
 }

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usage_transactions', function (Blueprint $table) {
+        Schema::create('workspaces', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("token_id")->unsigned();
-            $table->foreign("token_id")->references("id")->on("tokens");
-            $table->string("service_name", 255);
-            $table->float("duration");
-            $table->float("cost_per_second");
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string("title", 100)->unique("user_id");
+            $table->text("description")->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usage_transactions');
+        Schema::dropIfExists('workspaces');
     }
 };

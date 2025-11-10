@@ -2,8 +2,11 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -24,8 +27,20 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (ModelNotFoundException $e, $request) {
+            return redirect()->back()->with("error", "Ресурс не найден.");
+        });
+        $this->renderable(function (ValidationException $e, $request) {
+            return redirect()->back()->with("error", "Неверные переданные данные.");
+        });
+        $this->renderable(function (AuthorizationException $e, $request) {
+            return redirect()->back()->with("error", "Нет доступа.");
+        });
+        $this->renderable(function (AuthenticationException $e, $request) {
+            return redirect()->back()->with("error", "Необходимо авторизоваться.");
+        });
+        $this->renderable(function (Throwable $e, $request) {
+            return redirect()->back()->with("error", "Произошла ошибка сервера.".$e->getMessage());
         });
     }
 }
